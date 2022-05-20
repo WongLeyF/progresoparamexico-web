@@ -1,8 +1,17 @@
 <section class="form-register">
-    <form action="..\admon\index.php">
-        <h4>Formulario de ingreso</h4>
-        <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese Usuario o Correo">
-        <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese Contraseña">
-        <input type="submit" value="Ingresar" class="botons">
+    <form [formGroup]="registerForm">
+        <h4>Formulario de {{createUser ? 'registrar' : 'ingreso'}}</h4>
+        <input class="controls form-control" type="email" id="email" required formControlName="email" placeholder="Ingrese Correo">
+        <input type="password" [type]="hide ? 'password' : 'text'" class="controls form-control" maxlength="20"
+                    required formControlName="password"
+                    [ngClass]="{'is-invalid': registerForm.get('password').invalid && (registerForm.get('password').dirty || registerForm.get('password').touched) }"
+                    name="contrasena" id="contrasena" placeholder="************">
+                    <span class="input-group-btn" (click)="hide = !hide">
+                        <button class="btn" type="button"><i class="fas fa-low-vision"></i></button>
+                      </span>
+                    <span class="input-group-btn" (click)="createUser = !createUser">
+                        <button class="btn" type="button"><i class="fas fa-low-vision"></i></button>
+                      </span>
+        <input type="submit" value="Ingresar" class="botons" (click)="onSubmit()">
     </form>
 </section>

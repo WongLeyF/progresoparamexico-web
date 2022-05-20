@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   urlAPI: 'http://localhost:3000',
+  SECRET_KEY: 'Dl_uW2ebCMVZ(e4mp{hiEc1PnbOM6e'
 };
 
 /*
