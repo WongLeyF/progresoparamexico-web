@@ -21,6 +21,14 @@ const routes: Routes = [
         path: 'denounce',
         loadChildren: () => import('./modules/general/denounce/denounce.module').then(m => m.DenounceModule),
       },
+      {
+        path: 'about',
+        loadChildren: () => import('./modules/general/about/about.module').then(m => m.AboutModule),
+      },
+      {
+        path: 'violence',
+        loadChildren: () => import('./modules/general/violence/violence.module').then(m => m.ViolenceModule),
+      }
     ]
   },
 ];
