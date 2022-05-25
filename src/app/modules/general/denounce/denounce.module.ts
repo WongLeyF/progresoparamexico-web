@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DenounceRoutingModule } from './denounce-routing.module';
 import { DenounceComponent } from './denounce.component';
@@ -11,7 +12,9 @@ import { DenounceComponent } from './denounce.component';
   ],
   imports: [
     CommonModule,
-    DenounceRoutingModule
+    DenounceRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class DenounceModule { }

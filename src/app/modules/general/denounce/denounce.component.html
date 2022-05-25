@@ -1,11 +1,115 @@
 <section class="form-register">
-        
-    <h4>Formulario Registro</h4>
-    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
-    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
-    <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
-    <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su Contraseña">
-    
-    <input class="botons" type="submit" value="Registrar denuncia" (click)="onSubmit()">
+    <form [formGroup]="denounceForm" (submit)="onSubmit()">
 
+        <h4>Formulario Registro</h4>
+        <label style="margin:10px;" for="Datos sobre la institución">Datos sobre la institución</label>
+        <select class="controls" formControlName="schoolGrade" (change)="onChangeSchoolGrade()">
+            <option value="" selected>Selecciona un nivel educativo</option>
+            <option value="Preparatoria">Preparatoria</option>
+            <option value="University">Universidad</option>
+        </select>
+
+        <select class="controls" formControlName="instituteId" (change)="onChangeInstitute()">
+            <option value="" selected>Selecciona una institución</option>
+            <option *ngFor="let institution of institutes" [value]="institution._id">{{institution.name}}</option>
+        </select>
+        
+        <select class="controls" formControlName="careerId">
+            <option value="" selected>Selecciona una carrera</option>
+            <option *ngFor="let career of careers" [value]="career._id">{{career.name}}</option>
+        </select>
+
+
+        <!-- <input class="controls" type="text" id="carrera" placeholder="Ingrese su carrera"> -->
+
+        <label style="margin-bottom:10px;" for="agresión">Datos sobre la agresión</label>
+
+        <select class="controls" formControlName="genderVictim">
+            <option value="" selected>Selecciona su sexo</option>
+            <option value="M">Hombre</option>
+            <option value="F">Mujer</option>
+        </select>
+        <select class="controls" formControlName="genderAggressor">
+            <option value="" selected>Selecciona sexo del agresor</option>
+            <option value="M">Hombre</option>
+            <option value="F">Mujer</option>
+        </select>
+        <select class="controls" formControlName="violenceType">
+            <option value="" selected>Selecciona algún tipo de violencia</option>
+            <option value="verbal">Verbal o psicológica</option>
+            <option value="patrimonial">Patrimonial</option>
+            <option value="physical">Fisica</option>
+            <option value="sexual">Sexual</option>
+        </select>
+        <select class="controls" formControlName="typeAggressor">
+            <option value="" selected>Selecciona la persona que ejerció la violencia</option>
+            <option value="classmate">Compañero de clase</option>
+            <option value="schoolmate">Compañero de escuela</option>
+            <option value="teacher">Maestro</option>
+            <option value="school relationship">Relación dentro de la escuela</option>
+            <option value="external relationship">Relación fuera de la escuela</option>
+            <option value="principal">Director</option>
+            <option value="administrative">Personal administrativo</option>
+            <option value="multipurpose">Personal labores varias</option>
+            <option value="non-school">Persona ajena a la escuela</option>
+        </select>
+
+        <select class="controls" formControlName="incidentLocation">
+            <option value="" selected>Selecciona el lugar dónde sucedio</option>
+            <option value="classroom">Dentro del aula</option>
+            <option value="office">En una oficina</option>
+            <option value="common area">Áreas comunes</option>
+            <option value="bathroom">Baños</option>
+            <option value="outside school with academic activity">Fuera del planten en actividad academica</option>
+            <option value="outside school with other activity">Fuera del plantel realizando otra actividad</option>
+        </select>
+
+        <label style="margin-bottom:10px;" for="acciones">Seguimiento</label>
+
+        <select class="controls" formControlName="actionTaken">
+            <option value="" selected>Selecciona la acción tomada</option>
+            <option value="none">Ninguna</option>
+            <option value="teacher">Denuncié ante el maestro</option>
+            <option value="school authority">Denuncié ante una autoridad escolar</option>
+            <option value="instance">Denuncié ante una instancia</option>
+        </select>
+        <select class="controls" formControlName="somenthingHappened">
+            <option value="" selected>Selecciona si se dio seguimiento</option>
+            <option value="No tomaron la denuncia">No tomaron la denuncia</option>
+            <option value="No quisieron atenderme">No quisieron atenderme</option>
+            <option value="No quisieron levantarme la denuncia">No quisieron levantarme la denuncia</option>
+            <option value="Si tomaron la denuncia">Si tomaron la denuncia</option>
+            <option value="Si quisieron atenderme">Si quisieron atenderme</option>
+            <option value="Si quisieron levantarme la denuncia">Si quisieron levantarme la denuncia</option>
+        </select>
+        <select class="controls" formControlName="timeSinceIncident">
+            <option value="" selected>Selecciona el tiempo de atención</option>
+            <option value="more than 12 months">mas de 12 meses</option>
+            <option value="between 6 and 12 months">de 6 a 12 meses</option>
+            <option value="between 3 and 6 months">de 3 a 6 meses</option>
+            <option value="between 1 and 3 months">menos de 3 meses</option>
+            <option value="last 15 days">en los últimos 15 días</option>
+        </select>
+        <select class="controls" formControlName="interventionType">
+            <option value="" selected>Selecciona si necesita otro tipo de servicio</option>
+            <option value="psychiatric">Atención psiquiátrica</option>
+            <option value="medical">Atención médica</option>
+            <option value="legal abortion">Interrupción legal de embarazo</option>
+            <option value="psychological">Atención psicológica</option>
+        </select>
+
+        <input style="height:200px;" class="controls" type="text" id="narración"
+            placeholder="Narre los hechos" formControlName="interventionDescription">
+        <!-- checkbox  informationReceived-->
+
+        <label style="margin-bottom:10px;" for="informacion recibida">¿Recibes informacion sobre los tipos y modalidades de violencia?</label>
+        <input type="checkbox" class="controls" formControlName="informationReceived" value="true">
+
+        <!-- checkbox mechanismsExist -->
+        <label style="margin-bottom:10px;" for="mecanismos existentes">¿Existen mecanismos de prevención y/o control de la violencia?</label>
+        <input type="checkbox" class="controls" formControlName="mechanismsExist" value="true">
+
+        <input class="botons" type="submit" value="Registrar denuncia">
+
+    </form>
 </section>
