@@ -8,62 +8,11 @@ body{
     align-items: center;
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(226,226,226,1) 110%);
   }
-  ul {
-    list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #333;
-      border-radius: 15px;
-      font-family: Arial, Helvetica, sans-serif;
-      width: 94%;
-      margin-left: 3%;
-  }
-  
-  li {
-    float: left;
-    border-right:1px solid #bbb;
-    border-radius: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  li:last-child {
-    border-right: none;
-    border-radius: 15px;
-  
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    border-radius: 15px;
-  
-  }
-  
-  li a:hover:not(.active) {
-    background-color: #111;
-    border-radius: 15px;
-  
-  }
-  
   .active {
-    background-color: #e6836a;
-    border-radius: 15px;
-  
-  }
-  
-  footer {
-    background-color: #333;
-    position: absolute;
-    bottom: 0;
-    width: 93%;
-    height: 40px;
-    color: white;
-  }
-  
+  background-color: rgb(151, 226, 174);
+  border-radius: 15px;
+
+}
   .text-center {
     text-align: center;
     color: white;
@@ -71,17 +20,20 @@ body{
   }
   
   .denu{
-    background-color: #e6836a;
+    background-color: rgb(151, 226, 174);
     color: white;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-right: 300px;
+    margin-right: 550px;
     margin-left: 200px;
     border-radius: 15px;
     height: 50px;
     font-size: 40px;
     text-align: center;
     
+  }
+  .col{
+    color: white;
   }
   
   h4, h2,small,a{
