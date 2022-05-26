@@ -4,11 +4,13 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+    
 }
 /*:::::Pie de Pagina*/
 .pie-pagina{
+    
     width: 100%;
-    background-color: rgb(121, 196, 143);
+    background-color: rgb(63, 81, 181);
 }
 .pie-pagina .grupo-1{
     width: 100%;
@@ -55,7 +57,7 @@
     color: aqua;
 }
 .pie-pagina .grupo-2{
-    background-color: rgb(151, 226, 174);
+    background-color: rgb(94, 110, 206);
     padding: 15px 10px;
     text-align: center;
     color: #fff;

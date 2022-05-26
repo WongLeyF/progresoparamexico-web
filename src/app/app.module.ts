@@ -7,9 +7,15 @@ import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { HeaderInterceptorService } from './core/services/header-interceptor.service';
 import { UnauthorizedInterceptorService } from './core/services/unauthorized-interceptor.service';
 import { SharedModule } from './modules/shared/shared.module';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PruebaComponent } from './prueba/prueba.component';
 
 registerLocaleData(localeEs);
 
@@ -17,13 +23,20 @@ registerLocaleData(localeEs);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PruebaComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    CarouselModule.forRoot()
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-MX' },

@@ -1,8 +1,9 @@
-<ul>
-    <li><a class="active" routerLink="/">Home</a></li>
-    <li><a routerLink="/denounce">Denuncias</a></li>
-    <li><a routerLink="/about">Acerca de nosotros</a></li>
-    <li><a routerLink="/violence">Violencia</a></li>
-    <li style="float:right" *ngIf="!userSession"><a routerLink="/login">Login</a></li>
-    <li style="float:right" *ngIf="userSession"><a (click)="onLogout()">LogOut</a></li>
-</ul>
+<mat-toolbar color="primary">
+    <span><a mat-raised-button color="green" routerLink="/">Home</a></span>
+    <span><a mat-button routerLink="/denounce">Denuncias</a></span>
+    <span><a mat-button routerLink="/about">Acerca de nosotros</a></span>
+    <span><a mat-button routerLink="/violence">Violencia</a></span>
+    <div class="spacer"></div>
+    <span style="float:right" *ngIf="!userSession"><a mat-button routerLink="/login">Login</a></span>
+    <span style="float:right" *ngIf="userSession"><a mat-button (cspanck)="onLogout()">LogOut</a></span>
+</mat-toolbar>

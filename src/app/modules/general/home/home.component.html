@@ -1,21 +1,28 @@
 <div class="Carousel">
     <h2 style="margin-right: 200px">Tipos de violencia</h2>
-    <div class="slick-list" id="slick-list" style="margin-left: 200px;">
 
-        <div class="slick-track" id="track">
+    <div class="slick-list" id="slick-list" style="margin-left: 200px;">
+        <mat-sidenav-container class="example-container" >
+        <mat-sidenav #sidenav mode="side">
+            <p  style="text-align:justify;">
+              <b> La violencia física</b>
+              es aquella acción<br>
+              generada de manera voluntaria y que<br>
+              por lo mismo ocasiona daños no<br>
+              accidentales, utilizando la fuerza<br>
+              física o material (es decir, sirviéndose<br>
+              de objetos) y que tiene como fin<br>
+              fundamental generar un impacto directo<br>
+              en el cuerpo y consecuencias físicas<br>
+              tanto externas como internas.<br>
+            </p>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+          <div class="slick-track" id="track">
             <div class="slick">
                 <div>
-                    <a href="Denuncias/Denuncias.php">
-                        <h4><small>Verbal o psicológica</small>¡Informate aquí!</h4>
-                        <picture>
-                            <img src="assets/img/img4.jpg" alt="Image">
-                        </picture>
-                    </a>
-                </div>
-            </div>
-            <div class="slick">
-                <div>
-                    <a href="Denuncias/Denuncias.php">
+                    <a mat-button (click)="sidenav.toggle()">
                         <h4><small>Física</small>¡Informate aquí!</h4>
                         <picture>
                             <img src="assets/img/img3.jpg" alt="Image">
@@ -23,9 +30,75 @@
                     </a>
                 </div>
             </div>
+            </div>
+          <div class="example-events">
+            <div></div>
+          </div>
+        </mat-sidenav-content>
+
+      </mat-sidenav-container>
+      
+      <mat-sidenav-container class="example-container" >
+        <mat-sidenav #sidenav2 mode="side">
+          <p style="text-align:justify;">
+            <b>La violencia verbal, emocional y/o<br>
+              psicológica</b>
+             hace referencia al<br>
+            hostigamiento verbal a través de<br>
+            insultos, críticas permanentes,<br>
+            comentarios hirientes y humillaciones;<br>
+            incluye conductas de desvalorización,<br>
+            gestos displicentes, ridiculización,<br>
+            aislamiento, celos, y posesividad,<br>
+            es decir, las agresiones verbales<br>
+            son una forma de violencia<br>
+            psicológica y/o emocional.<br>
+          </p>
+          
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+          <div class="slick-track" id="track">
             <div class="slick">
                 <div>
-                    <a href="Denuncias/Denuncias.php">
+                    <a mat-button (click)="sidenav2.toggle()">
+                        <h4><small>Verbal o psicológica</small>¡Informate aquí!</h4>
+                        <picture>
+                            <img src="assets/img/img4.jpg" alt="Image">
+                        </picture>
+                    </a>
+                </div>
+            </div>
+            </div>
+          <div class="example-events">
+            <div></div>
+          </div>
+        </mat-sidenav-content>
+        
+      </mat-sidenav-container>
+      <mat-sidenav-container class="example-container" >
+        <mat-sidenav #sidenav3 mode="side">
+            <p  style="text-align:justify;">
+              <b>Violencia Patrimonial</b> <br>
+              Es un tipo de violencia referente<br>
+              a un acto u omisión que afecta la<br>
+              supervivencia de la víctima. Se<br>
+              manifiesta en la transformación,<br>
+              sustracción, destrucción o retención<br>
+              de objetos, documentos personales,<br>
+              bienes y valores, derechos patrimoniales<br>
+              o recursos económicos destinados a<br>
+              satisfacer sus necesidades y puede<br>
+              abarcar daños a los bienes comunes<br>
+              o propios de la víctima.<br>
+            </p>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+          <div class="slick-track" id="track">
+            <div class="slick">
+                <div>
+                    <a mat-button (click)="sidenav3.toggle()">
                         <h4><small>Patrimonial</small>¡Informate aquí!</h4>
                         <picture>
                             <img src="assets/img/img5.jpg" alt="Image">
@@ -33,9 +106,43 @@
                     </a>
                 </div>
             </div>
+            </div>
+          <div class="example-events">
+            <div></div>
+          </div>
+        </mat-sidenav-content>
+        
+      </mat-sidenav-container>
+
+      <mat-sidenav-container class="example-container" >
+        <mat-sidenav #sidenav4 mode="side">
+            <p>
+              
+              La <b>violencia sexual</b> es todo acto<br>
+              intencional de naturaleza sexual<br>
+              que es forzado en otra persona,<br>
+              sin importar su relación, mediante<br>
+              fuerza física, coerción,<br>
+              intimidación, humillación, causando<br>
+              o tomando ventaja de la intoxicación<br>
+              por drogas o alcohol de otra persona,<br>
+              o tomando ventaja de la inhabilidad<br>
+              de otra persona para dar consentimiento.<br>
+              <b>Violencia sexual incluye: <br></b>
+              
+              Violación<br>
+              Toqueteo indeseado<br>
+              Acoso sexual<br>
+              Acosamiento<br>
+              Comentarios sexuales no deseados<br>
+            </p>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+          <div class="slick-track" id="track">
             <div class="slick">
                 <div>
-                    <a href="Denuncias/Denuncias.php">
+                    <a mat-button (click)="sidenav4.toggle()">
                         <h4><small>Sexual</small>¡Informate aquí!</h4>
                         <picture>
                             <img src="assets/img/img6.jpg" alt="Image">
@@ -43,12 +150,12 @@
                     </a>
                 </div>
             </div>
-
-        </div>
-
-    </div>
-
-    <div class="denu">
-        <a class="col" href="Denuncias/Denuncias.php">¡Denuncia aquí si haz sufrido algún tipo de abuso!</a>
+            </div>
+          <div class="example-events">
+            <div></div>
+          </div>
+        </mat-sidenav-content>
+        
+      </mat-sidenav-container>
     </div>
 </div>

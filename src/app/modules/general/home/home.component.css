@@ -20,7 +20,7 @@ body{
   }
   
   .denu{
-    background-color: rgb(151, 226, 174);
+    background-color: rgb(63, 81, 181);
     color: white;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -77,11 +77,10 @@ body{
     top: 0;
     left: 0;
     display: flex;
-    justify-content: center;
     transition: .5s ease-in-out;
   }
   .slick{
-    position: relative;
+    position: left;
     width: 275px;
     padding: 0 18px;
     float: left;
@@ -142,3 +141,7 @@ body{
   .slick-next{
     right: 0px;
   }
+  
+.info2{
+  left: 400px;
+}
