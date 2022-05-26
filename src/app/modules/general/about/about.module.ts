@@ -15,6 +15,8 @@ import {MatTreeModule} from '@angular/material/tree';
     AboutRoutingModule,
     MatTreeModule,
     AccordionModule.forRoot()
-  ]
+  ],
+  entryComponents: [],
+  bootstrap: [AboutComponent]
 })
 export class AboutModule { }

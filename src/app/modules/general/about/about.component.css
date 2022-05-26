@@ -70,13 +70,13 @@ body {
 }
 .slick2{
   position: relative;
-  width: 650px;
-  padding: 18px 18px;
+  width: 100%;
   float: left;
   box-sizing: border-box;
   display: flex;
   height: 100%;
   border-color: #111;
+  font-size: 15px;
 }
 .slick h4{
   position: absolute;
