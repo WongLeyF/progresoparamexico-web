@@ -28,4 +28,16 @@ export class CareerService {
     return this.apiService.get(`${this.resource}/institute/${careerInstituteId}`);
   }
 
+  create(career: Career): Observable<any> {
+    return this.apiService.post(`${this.resource}/`, career);
+  }
+
+  update(careerId: string, career: Career): Observable<any> {
+    return this.apiService.put(`${this.resource}/${careerId}`, career);
+  }
+
+  delete(careerId: string): Observable<any> {
+    return this.apiService.delete(`${this.resource}/${careerId}`);
+  }
+
 }

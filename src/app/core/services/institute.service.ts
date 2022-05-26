@@ -35,4 +35,12 @@ export class InstituteService {
   create(institute: Institute): Observable<any> {
     return this.apiService.post(`${this.resource}/`, institute);
   }
+
+  update(instituteId: string, institute: Institute | any): Observable<any> {
+    return this.apiService.put(`${this.resource}/${instituteId}`, institute);
+  }
+
+  delete(instituteId: string): Observable<any> {
+    return this.apiService.delete(`${this.resource}/${instituteId}`);
+  }
 }

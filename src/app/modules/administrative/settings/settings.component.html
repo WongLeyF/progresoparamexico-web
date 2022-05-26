@@ -1,0 +1,84 @@
+<mat-tab-group [selectedIndex]="selectedTab.value" (selectedIndexChange)="changeTab($event)">
+    <mat-tab label="Instituciónes">
+        <div class="container" >
+            <div class="row justify-content-end">
+                <br>
+                <div class="col-12">
+                    <button mat-button color="primary" class="botons" (click)="showAddInstitutes()">Agregar Institución</button>
+                </div>
+                <div class="col-12">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Institución</th>
+                                <th>Nivel de educación</th>
+                                <th>Telefono</th>
+                                <th>Número de Carreras</th>
+                                <th>Email</th>
+                                <!-- <th>Tipo de Violencia</th>
+                                <th>Descripción</th>
+                                <th>Sexo</th> -->
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="institutes">
+                            <tr *ngFor="let institute of institutes">
+                                <td>{{institute.name}}</td>
+                                <td>{{institute.schoolGrade}}</td>
+                                <td>{{institute.phone}}</td>
+                                <td>{{institute.careerId.length}}</td>
+                                <td>{{institute.email}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-link" (click)="showEditInstitute(institute)"><fa-icon [icon]="faEdit"></fa-icon></button>
+                                    <button type="button" class="btn btn-link link-danger" (click)="deleteInstitute(institute)"><fa-icon [icon]="faTrash"></fa-icon></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+
+    <!-- Carreras -->
+    <mat-tab label="Carreras">
+        <div class="container">
+            <div class="row">
+                <br>
+                <div class="col-12">
+                    <button mat-button color="primary" class="botons" (click)="showAddCareer()">Agregar Carrera</button>
+                </div>
+                <div class="col-12">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Carrera</th>
+                                <th>Institucion</th>
+                                <th>Descripción</th>
+                                <!-- <th>Telefono</th> -->
+                                <!-- <th>Email</th> -->
+                                <!-- <th>Tipo de Violencia</th>
+                                <th>Descripción</th>
+                                <th>Sexo</th> -->
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="careers">
+                            <tr *ngFor="let career of careers">
+                                <td>{{career.name}}</td>
+                                <td>{{career.instituteId?.name}}</td>
+                                <td>{{career.description}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-link" (click)="showEditCareer(career)"><fa-icon [icon]="faEdit"></fa-icon></button>
+                                    <button type="button" class="btn btn-link link-danger" (click)="deleteCareer(career)"><fa-icon [icon]="faTrash"></fa-icon></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>

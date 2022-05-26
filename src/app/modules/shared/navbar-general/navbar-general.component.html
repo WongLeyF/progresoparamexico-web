@@ -5,5 +5,6 @@
     <span><a mat-button routerLink="/violence">Violencia</a></span>
     <div class="spacer"></div>
     <span style="float:right" *ngIf="!userSession"><a mat-button routerLink="/login">Login</a></span>
-    <span style="float:right" *ngIf="userSession"><a mat-button (cspanck)="onLogout()">LogOut</a></span>
+    <span style="float:right" *ngIf="userSession"><a mat-button routerLink="/settings">Configuraciones</a></span>
+    <span style="float:right" *ngIf="userSession"><a mat-button (click)="onLogout()">LogOut</a></span>
 </mat-toolbar>

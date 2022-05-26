@@ -12,11 +12,7 @@ const routes: Routes = [
     children:[
       { path: '',
         loadChildren: () => import('./modules/general/home/home.module').then(m => m.HomeModule) },
-      { 
-        path: 'login', 
-        loadChildren: () => import('./modules/administrative/login/login.module').then(m => m.LoginModule),
-        canActivate: [NotAuthGuard]
-      },
+  
       {
         path: 'denounce',
         loadChildren: () => import('./modules/general/denounce/denounce.module').then(m => m.DenounceModule),
@@ -31,6 +27,22 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: '',
+    component: GeneralLayoutComponent,
+    children:[
+      { 
+        path: 'login', 
+        loadChildren: () => import('./modules/administrative/login/login.module').then(m => m.LoginModule),
+        // canActivate: [NotAuthGuard]
+      },
+      {
+        path: 'settings',
+        loadChildren: () => import('./modules/administrative/settings/settings.module').then(m => m.SettingsModule),
+        canActivate: [AuthGuard]
+      }
+    ]
+  }
 ];
 
 @NgModule({

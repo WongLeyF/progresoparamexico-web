@@ -1,6 +1,6 @@
 export interface Career {
-    _id: string;
-    name: string;
-    description: string;
-    instituteId: string;
+    _id?: string;
+    name?: string;
+    description?: string;
+    instituteId?: string|any;
 }

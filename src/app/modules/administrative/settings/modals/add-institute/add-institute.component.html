@@ -1,0 +1,49 @@
+<div mat-dialog-content>
+    <div class="p-2" style="position: absolute; top: 0; right: 0;">
+        <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title"
+            (click)="dialogRef.close('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="text-center d-flex flex-column align-items-center">
+        <h5 class="mt-2" style="font-size: 1.5em; color: #343a3f;">{{data.title}}</h5>
+        <form [formGroup]="instituteForm" class="col-12 pt-3 text-left">
+            <div class="form-group">
+                <label class="bold" for="name">Nombre</label>
+                <input type="text" required
+                    [ngClass]="{'is-invalid': instituteForm.get('name').invalid && (instituteForm.get('name').dirty || instituteForm.get('name').touched) }"
+                    formControlName="name" class="form-control" name="name" id="name">
+            </div>
+            <div class="form-group">
+                <label class="bold" for="schoolGrade">Nivel de educación</label>
+                <select class="form-control" required
+                    [ngClass]="{'is-invalid': instituteForm.get('schoolGrade').invalid && (instituteForm.get('schoolGrade').dirty || instituteForm.get('schoolGrade').touched) }"
+                    formControlName="schoolGrade" name="schoolGrade" id="schoolGrade">
+                    <option value="">Seleccione una opción</option>
+                    <!-- <option value="Primaria">Primaria</option>
+                    <option value="Secundaria">Secundaria</option> -->
+                    <option value="upper-middle">Media Superior</option>
+                    <option value="superior">Superior</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="bold" for="phone">Teléfono</label>
+                <input type="text" required
+                    [ngClass]="{'is-invalid': instituteForm.get('phone').invalid && (instituteForm.get('phone').dirty || instituteForm.get('phone').touched) }"
+                    formControlName="phone" class="form-control" name="phone" id="phone">
+            </div>
+            <div class="form-group">
+                <label class="bold" for="email">Email</label>
+                <input type="text" required
+                    [ngClass]="{'is-invalid': instituteForm.get('email').invalid && (instituteForm.get('email').dirty || instituteForm.get('email').touched) }"
+                    formControlName="email" class="form-control" name="email" id="email">
+            </div>
+
+        </form>
+        <div class="mt-4 text-center">
+            <button class="btn" style="background: #EDEEF3; font-weight: 500;"
+                (click)="dialogRef.close('Cross click')">Cancelar</button>
+            <button class="btn btn-primary ml-2" (click)="institute._id ? onEdit() : onSubmit()">{{data.buttonText}}</button>
+        </div>
+    </div>
+</div>

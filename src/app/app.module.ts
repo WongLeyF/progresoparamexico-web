@@ -17,6 +17,10 @@ import { UnauthorizedInterceptorService } from './core/services/unauthorized-int
 import { SharedModule } from './modules/shared/shared.module';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { PruebaComponent } from './prueba/prueba.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatMenuModule} from '@angular/material/menu';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 registerLocaleData(localeEs);
 
@@ -37,8 +41,11 @@ registerLocaleData(localeEs);
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
+    MatDialogModule,
+    MatMenuModule,
     CarouselModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FontAwesomeModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-MX' },
