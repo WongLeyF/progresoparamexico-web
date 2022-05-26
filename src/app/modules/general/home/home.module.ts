@@ -14,6 +14,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     HomeRoutingModule,
     MatSidenavModule,
     CarouselModule.forRoot()
-  ]
+  ],
+  entryComponents: [],
+  bootstrap: [HomeComponent]
+
 })
 export class HomeModule { }
