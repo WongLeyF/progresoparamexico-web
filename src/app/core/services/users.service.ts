@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { PaginationData } from '../interfaces/pagination-data.interface';
 import { User } from '../models/user.model';
 import { ApiService } from './api.service';
 
@@ -12,9 +13,9 @@ export class UsersService {
 
   constructor(private apiService: ApiService) { }
 
-  // getAll(filters: FilterUsers): Observable<PaginationData<User>> {
-  //   return this.apiService.get(`${this.resource}/`, filters);
-  // }
+  getAll(filters): Observable<PaginationData<User>> {
+    return this.apiService.get(`${this.resource}/`, filters);
+  }
 
   register(user: User): Observable<any> {
     return this.apiService.post(`${this.resource}/`, user);
@@ -30,6 +31,10 @@ export class UsersService {
 
   update(userId: string, user: User): Observable<User> {
     return this.apiService.put(`${this.resource}/${userId}`, user);
+  }
+
+  delete(userId: string): Observable<any> {
+    return this.apiService.delete(`${this.resource}/${userId}`);
   }
 
 }

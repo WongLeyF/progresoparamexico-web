@@ -9,13 +9,15 @@ import { AddInstituteComponent } from './modals/add-institute/add-institute.comp
 import { MatNativeDateModule } from '@angular/material/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddCareerComponent } from './modals/add-career/add-career.component';
+import { AddUserComponent } from './modals/add-user/add-user.component';
 
 
 @NgModule({
   declarations: [
     SettingsComponent,
     AddInstituteComponent,
-    AddCareerComponent
+    AddCareerComponent,
+    AddUserComponent
   ],
   imports: [
     CommonModule,

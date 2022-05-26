@@ -10,6 +10,12 @@ import { faTrash,faEdit } from '@fortawesome/free-solid-svg-icons';
 import { SwalAlertService } from 'src/app/core/services/swal-alert.service';
 import { AddCareerComponent } from './modals/add-career/add-career.component';
 import { ToastrService } from 'ngx-toastr';
+import { UsersService } from 'src/app/core/services/users.service';
+import { User } from 'src/app/core/models/user.model';
+import { PaginationData } from 'src/app/core/interfaces/pagination-data.interface';
+import { SessionService } from 'src/app/core/services/session.service';
+import { UserSession } from 'src/app/core/interfaces/user-session.interface';
+import { AddUserComponent } from './modals/add-user/add-user.component';
 
 @Component({
   selector: 'app-settings',
@@ -21,20 +27,35 @@ export class SettingsComponent implements OnInit {
   public selectedTab: FormControl;
   institutes: Array<Institute>;
   careers: Array<Career>;
+  users: any;
   faTrash = faTrash;
   faEdit = faEdit;
+
+  filters = {
+    name: '',
+    role: null,
+    status: 'todos',
+    page: 1,
+    limit: 15
+  };
+  userSession: UserSession;
 
   constructor(
     public dialog: MatDialog,
     private instituteService: InstituteService,
     private careerService: CareerService,
     private swalService: SwalAlertService,
-    private toastService: ToastrService
+    private toastService: ToastrService,
+    private userService: UsersService,
+    private sessionService: SessionService,
   ) { 
     this.selectedTab = new FormControl(0);
   }
 
   ngOnInit(): void {
+    this.sessionService.userSessionAsObservable.subscribe(res => {
+      this.userSession = res;
+    });
     this.getAllInstitutes();
   }
 
@@ -48,6 +69,9 @@ export class SettingsComponent implements OnInit {
         break;
       case 1:
         this.getAllCareers();
+        break;
+      case 2:
+        this.getAllUsers();
         break;
     }
   }
@@ -66,6 +90,16 @@ export class SettingsComponent implements OnInit {
     this.careerService.getAll().subscribe({
       next: (data) => {
         this.careers = data;
+      }
+    });
+  }
+
+  getAllUsers() {
+    this.userService.getAll(this.filters).subscribe({
+      next: (data) => {
+        this.users = data;
+        console.log(this.users);
+        
       }
     });
   }
@@ -187,6 +221,46 @@ export class SettingsComponent implements OnInit {
       }
     });
   }
+
+  showAddUser() {
+    const dialogRef = this.dialog.open(AddUserComponent, {
+      width: '500px',
+      data: {
+        title: 'Agregar usuario',
+        buttonText: 'Agregar',
+        edit: false,
+        user: {}
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.getAllUsers();
+      }
+    });   
+  }
+
+  showEditUser(user: User) {
+  }
+
+  deleteUser(user: User) {
+    const answer = this.swalService.confirm(`¿Está seguro de eliminar al usuario ${user.name}?`);
+    answer.then((result) => {
+      if (result) {
+        //update isActive to false
+        this.userService.update(user._id, {isActive: false}).subscribe({
+          next: (data) => {
+            this.getAllUsers();
+            this.toastService.success('Se eliminó el usuario correctamente');
+          },
+          error: (err) => {
+            this.toastService.error('No se pudo eliminar el usuario');
+          }
+        });
+      }
+    });
+  }
+
 
 
 }

@@ -7,6 +7,7 @@ import { Role } from 'src/app/core/models/role.model';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { RoleService } from 'src/app/core/services/role.service';
 import { SessionService } from 'src/app/core/services/session.service';
+import { SwalAlertService } from 'src/app/core/services/swal-alert.service';
 import { UsersService } from 'src/app/core/services/users.service';
 
 @Component({
@@ -31,7 +32,8 @@ export class LoginComponent implements OnInit {
     private userService: UsersService,
     private sessionService: SessionService,
     private roleService: RoleService,
-    private router: Router
+    private router: Router,
+    private swalAlertService: SwalAlertService
   ) { 
     this.registerForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -82,7 +84,7 @@ export class LoginComponent implements OnInit {
 
     }, error => {
       this.isRegistered = false;
-      console.log(error);
+      this.swalAlertService.error('Error', error.error.message);
     });
   }
 

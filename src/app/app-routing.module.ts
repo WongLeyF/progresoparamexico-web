@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { GeneralLayoutComponent } from './modules/shared/general-layout/general-layout.component';
 import { NotAuthGuard } from './core/guards/not-auth.guard';
 import { AuthGuard } from './core/guards/auth.guard';
+import { UserRole } from './core/enums/user-role';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -20,10 +21,6 @@ const routes: Routes = [
       {
         path: 'about',
         loadChildren: () => import('./modules/general/about/about.module').then(m => m.AboutModule),
-      },
-      {
-        path: 'violence',
-        loadChildren: () => import('./modules/general/violence/violence.module').then(m => m.ViolenceModule),
       }
     ]
   },
@@ -39,7 +36,14 @@ const routes: Routes = [
       {
         path: 'settings',
         loadChildren: () => import('./modules/administrative/settings/settings.module').then(m => m.SettingsModule),
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        data: {roles: [UserRole.SUPER_ADMINISTRADOR]}
+      },
+      {
+        path: 'violence',
+        loadChildren: () => import('./modules/administrative/violence/violence.module').then(m => m.ViolenceModule),
+        canActivate: [AuthGuard],
+        data: {roles: [UserRole.SUPER_ADMINISTRADOR, UserRole.ADMINISTRADOR]}
       }
     ]
   }

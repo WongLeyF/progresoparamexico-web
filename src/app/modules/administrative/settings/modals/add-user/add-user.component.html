@@ -1,0 +1,42 @@
+<div mat-dialog-content>
+    <div class="p-2" style="position: absolute; top: 0; right: 0;">
+        <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title"
+            (click)="dialogRef.close('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="text-center d-flex flex-column align-items-center">
+        <h5 class="mt-2" style="font-size: 1.5em; color: #343a3f;">{{data.title}}</h5>
+        <form [formGroup]="registerForm" class="col-12 pt-3 text-left">
+            <div class="form-group">
+                <label class="bold" for="email">Email</label>
+                <input type="text" required
+                    [ngClass]="{'is-invalid': registerForm.get('email').invalid && (registerForm.get('email').dirty || registerForm.get('email').touched) }"
+                    formControlName="email" class="form-control" name="email" id="email">
+            </div>
+            <!-- password -->
+            <div class="form-group">
+                <label class="bold" for="password">Contraseña</label>
+                <input type="password" required
+                    [ngClass]="{'is-invalid': registerForm.get('password').invalid && (registerForm.get('password').dirty || registerForm.get('password').touched) }"
+                    formControlName="password" class="form-control" name="password" id="password">
+            </div>
+
+            <div class="form-group">
+                <label class="bold" for="schoolGrade">Seleccione el Rol</label>
+                <select class="form-control controls" formControlName="roleId" 
+                [ngClass]="{'is-invalid': registerForm.get('roleId').invalid && (registerForm.get('roleId').dirty || registerForm.get('roleId').touched) }">
+                    <option value="" selected>Selecciona una institución</option>
+                    <option *ngFor="let role of roles" [value]="role._id">{{role.name}}</option>
+                </select>
+            </div>
+
+
+        </form>
+        <div class="mt-4 text-center">
+            <button class="btn" style="background: #EDEEF3; font-weight: 500;"
+                (click)="dialogRef.close('Cross click')">Cancelar</button>
+            <button class="btn btn-primary ml-2" (click)="register()">{{data.buttonText}}</button>
+        </div>
+    </div>
+</div>

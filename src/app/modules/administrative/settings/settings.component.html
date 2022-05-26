@@ -81,4 +81,44 @@
             </div>
         </div>
     </mat-tab>
+    <!-- Usuarios -->
+    <mat-tab label="Usuarios">
+        <div class="container">
+            <div class="row">
+                <br>
+                <div class="col-12">
+                    <button mat-button color="primary" class="botons" (click)="showAddUser()">Agregar Usuario</button>
+                </div>
+                <div class="col-12">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Email</th>
+                                <th>Tipo de Usuario</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="users?.data">
+                            <tr *ngFor="let user of users?.data">
+                                <td>{{user.username}}</td>
+                                <td>{{user.name}}</td>
+                                <td>{{user.lastName}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.roleId?.name}}</td>
+                                <td *ngIf="user._id != userSession._id">
+                                    <!-- <button type="button" class="btn btn-link" (click)="showEditUser(user)"><fa-icon [icon]="faEdit"></fa-icon></button> -->
+                                    <button type="button" class="btn btn-link link-danger" (click)="deleteUser(user)"><fa-icon [icon]="faTrash"></fa-icon></button>
+                                </td>
+                                <td *ngIf="user._id == userSession._id"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
 </mat-tab-group>
