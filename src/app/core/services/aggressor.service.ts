@@ -28,4 +28,13 @@ export class AggressorService {
     return this.apiService.put(`${this.resource}/${aggressor._id}`, aggressor);
   }
 
+  delete(aggressorId: string): Observable<any> {
+    return this.apiService.delete(`${this.resource}/${aggressorId}`);
+  }
+
+  // find by params name lastname
+  getByNameLastNameInstituteGender(name: string, lastName: string, instituteId, gender): Observable<Array<Aggressor>> {
+    return this.apiService.get(`${this.resource}/search/${name}/${lastName}/${instituteId}/${gender}`);
+  }
+
 }

@@ -1,47 +1,50 @@
 <section class="form-register">
     <form [formGroup]="denounceForm" (submit)="onSubmit()">
 
-        <h4>Formulario Registro</h4>
+        <h4 (click)="showSuccess()">Formulario Registro</h4>
         <label style="margin:10px;" for="Datos sobre la institución">Datos sobre la institución</label>
-        <select class="controls" formControlName="schoolGrade" (change)="onChangeSchoolGrade()">
+        <select class="form-control controls" formControlName="schoolGrade" (change)="onChangeSchoolGrade()" 
+        [ngClass]="{'is-invalid': denounceForm.get('schoolGrade').invalid && (denounceForm.get('schoolGrade').dirty || denounceForm.get('schoolGrade').touched) }">
             <option value="" selected>Selecciona un nivel educativo</option>
-            <option value="Preparatoria">Preparatoria</option>
-            <option value="University">Universidad</option>
+            <option value="upper-middle">Medio Superior</option>
+            <option value="superior">Superior</option>
         </select>
 
-        <select class="controls" formControlName="instituteId" (change)="onChangeInstitute()">
+        <select class="form-control controls" formControlName="instituteId" (change)="onChangeInstitute()" 
+        [ngClass]="{'is-invalid': denounceForm.get('instituteId').invalid && (denounceForm.get('instituteId').dirty || denounceForm.get('instituteId').touched) }">
             <option value="" selected>Selecciona una institución</option>
             <option *ngFor="let institution of institutes" [value]="institution._id">{{institution.name}}</option>
         </select>
-        
-        <select class="controls" formControlName="careerId">
+
+        <select class="form-control controls" formControlName="careerId"
+        [ngClass]="{'is-invalid': denounceForm.get('instituteId').invalid && (denounceForm.get('careerId').dirty || denounceForm.get('careerId').touched) }">
             <option value="" selected>Selecciona una carrera</option>
             <option *ngFor="let career of careers" [value]="career._id">{{career.name}}</option>
         </select>
 
 
-        <!-- <input class="controls" type="text" id="carrera" placeholder="Ingrese su carrera"> -->
+        <!-- <input class="form-control controls" type="text" id="carrera" placeholder="Ingrese su carrera"> -->
 
-        <label style="margin-bottom:10px;" for="agresión">Datos sobre la agresión</label>
+        <label style="margin-bottom:10px;" for="agresión">Datos del agresor</label>
 
-        <select class="controls" formControlName="genderVictim">
-            <option value="" selected>Selecciona su sexo</option>
-            <option value="M">Hombre</option>
-            <option value="F">Mujer</option>
-        </select>
-        <select class="controls" formControlName="genderAggressor">
+        <input class="form-control controls" type="text" placeholder="Nombre" formControlName="nameAggressor"
+        [ngClass]="{'is-invalid': denounceForm.get('nameAggressor').invalid && (denounceForm.get('nameAggressor').dirty || denounceForm.get('nameAggressor').touched) }">
+
+        <input class="form-control controls" type="text" placeholder="Apellidos" formControlName="lastNameAggressor"
+        [ngClass]="{'is-invalid': denounceForm.get('lastNameAggressor').invalid && (denounceForm.get('lastNameAggressor').dirty || denounceForm.get('lastNameAggressor').touched) }">
+
+        <input class="form-control controls" type="number" placeholder="Edad" formControlName="ageAggressor"
+        [ngClass]="{'is-invalid': denounceForm.get('ageAggressor').invalid && (denounceForm.get('ageAggressor').dirty || denounceForm.get('ageAggressor').touched) }">
+
+        <select class="form-control controls" formControlName="genderAggressor"
+        [ngClass]="{'is-invalid': denounceForm.get('genderAggressor').invalid && (denounceForm.get('genderAggressor').dirty || denounceForm.get('genderAggressor').touched) }">
             <option value="" selected>Selecciona sexo del agresor</option>
             <option value="M">Hombre</option>
             <option value="F">Mujer</option>
         </select>
-        <select class="controls" formControlName="violenceType">
-            <option value="" selected>Selecciona algún tipo de violencia</option>
-            <option value="verbal">Verbal o psicológica</option>
-            <option value="patrimonial">Patrimonial</option>
-            <option value="physical">Fisica</option>
-            <option value="sexual">Sexual</option>
-        </select>
-        <select class="controls" formControlName="typeAggressor">
+        <select class="form-control controls" formControlName="typeAggressor"
+        [ngClass]="{'is-invalid': denounceForm.get('typeAggressor').invalid && (denounceForm.get('typeAggressor').dirty || denounceForm.get('typeAggressor').touched) }">
+        
             <option value="" selected>Selecciona la persona que ejerció la violencia</option>
             <option value="classmate">Compañero de clase</option>
             <option value="schoolmate">Compañero de escuela</option>
@@ -54,7 +57,35 @@
             <option value="non-school">Persona ajena a la escuela</option>
         </select>
 
-        <select class="controls" formControlName="incidentLocation">
+
+        <label style="margin-bottom:10px;" for="victima">Datos de la victima</label>
+
+        <select class="form-control controls" formControlName="genderVictim"
+        [ngClass]="{'is-invalid': denounceForm.get('genderVictim').invalid && (denounceForm.get('genderVictim').dirty || denounceForm.get('genderVictim').touched) }">
+
+            <option value="" selected>Selecciona su sexo</option>
+            <option value="M">Hombre</option>
+            <option value="F">Mujer</option>
+        </select>
+        <input class="form-control controls" type="number" placeholder="Edad" formControlName="ageVictim"
+        [ngClass]="{'is-invalid': denounceForm.get('ageVictim').invalid && (denounceForm.get('ageVictim').dirty || denounceForm.get('ageVictim').touched) }">
+
+
+        <label style="margin-bottom:10px;" for="agresión">Datos sobre la agresión</label>
+
+        <select class="form-control controls" formControlName="violenceType"
+        [ngClass]="{'is-invalid': denounceForm.get('violenceType').invalid && (denounceForm.get('violenceType').dirty || denounceForm.get('violenceType').touched) }">
+            <option value="" selected>Selecciona algún tipo de violencia</option>
+            <option value="verbal">Verbal o psicológica</option>
+            <option value="patrimonial">Patrimonial</option>
+            <option value="physical">Fisica</option>
+            <option value="sexual">Sexual</option>
+        </select>
+
+
+        <select class="form-control controls" formControlName="incidentLocation"
+        [ngClass]="{'is-invalid': denounceForm.get('incidentLocation').invalid && (denounceForm.get('incidentLocation').dirty || denounceForm.get('incidentLocation').touched) }">
+        
             <option value="" selected>Selecciona el lugar dónde sucedio</option>
             <option value="classroom">Dentro del aula</option>
             <option value="office">En una oficina</option>
@@ -66,14 +97,18 @@
 
         <label style="margin-bottom:10px;" for="acciones">Seguimiento</label>
 
-        <select class="controls" formControlName="actionTaken">
+        <select class="form-control controls" formControlName="actionTaken"
+        [ngClass]="{'is-invalid': denounceForm.get('actionTaken').invalid && (denounceForm.get('actionTaken').dirty || denounceForm.get('actionTaken').touched) }">
+        
             <option value="" selected>Selecciona la acción tomada</option>
             <option value="none">Ninguna</option>
             <option value="teacher">Denuncié ante el maestro</option>
             <option value="school authority">Denuncié ante una autoridad escolar</option>
             <option value="instance">Denuncié ante una instancia</option>
         </select>
-        <select class="controls" formControlName="somenthingHappened">
+        <select class="form-control controls" formControlName="somenthingHappened"
+        [ngClass]="{'is-invalid': denounceForm.get('somenthingHappened').invalid && (denounceForm.get('somenthingHappened').dirty || denounceForm.get('somenthingHappened').touched) }">
+        
             <option value="" selected>Selecciona si se dio seguimiento</option>
             <option value="No tomaron la denuncia">No tomaron la denuncia</option>
             <option value="No quisieron atenderme">No quisieron atenderme</option>
@@ -82,7 +117,9 @@
             <option value="Si quisieron atenderme">Si quisieron atenderme</option>
             <option value="Si quisieron levantarme la denuncia">Si quisieron levantarme la denuncia</option>
         </select>
-        <select class="controls" formControlName="timeSinceIncident">
+        <select class="form-control controls" formControlName="timeSinceIncident"
+        [ngClass]="{'is-invalid': denounceForm.get('timeSinceIncident').invalid && (denounceForm.get('timeSinceIncident').dirty || denounceForm.get('timeSinceIncident').touched) }">
+        
             <option value="" selected>Selecciona el tiempo de atención</option>
             <option value="more than 12 months">mas de 12 meses</option>
             <option value="between 6 and 12 months">de 6 a 12 meses</option>
@@ -90,24 +127,31 @@
             <option value="between 1 and 3 months">menos de 3 meses</option>
             <option value="last 15 days">en los últimos 15 días</option>
         </select>
-        <select class="controls" formControlName="interventionType">
+        <select class="form-control controls" formControlName="interventionType"
+        [ngClass]="{'is-invalid': denounceForm.get('interventionType').invalid && (denounceForm.get('interventionType').dirty || denounceForm.get('interventionType').touched) }">
+        
             <option value="" selected>Selecciona si necesita otro tipo de servicio</option>
+            <option value="none">No</option>
             <option value="psychiatric">Atención psiquiátrica</option>
             <option value="medical">Atención médica</option>
             <option value="legal abortion">Interrupción legal de embarazo</option>
             <option value="psychological">Atención psicológica</option>
         </select>
 
-        <input style="height:200px;" class="controls" type="text" id="narración"
-            placeholder="Narre los hechos" formControlName="interventionDescription">
+        <input style="height:200px;" class="form-control controls" type="text" id="narración" placeholder="Narre los hechos"
+            formControlName="interventionDescription"
+        [ngClass]="{'is-invalid': denounceForm.get('interventionDescription').invalid && (denounceForm.get('interventionDescription').dirty || denounceForm.get('interventionDescription').touched) }">
+            
         <!-- checkbox  informationReceived-->
 
-        <label style="margin-bottom:10px;" for="informacion recibida">¿Recibes informacion sobre los tipos y modalidades de violencia?</label>
-        <input type="checkbox" class="controls" formControlName="informationReceived" value="true">
+        <label style="margin-bottom:10px;" for="informacion recibida">¿Recibes informacion sobre los tipos y modalidades
+            de violencia?</label>
+        <input type="checkbox" class="form-control controls" formControlName="informationReceived" value="true">
 
         <!-- checkbox mechanismsExist -->
-        <label style="margin-bottom:10px;" for="mecanismos existentes">¿Existen mecanismos de prevención y/o control de la violencia?</label>
-        <input type="checkbox" class="controls" formControlName="mechanismsExist" value="true">
+        <label style="margin-bottom:10px;" for="mecanismos existentes">¿Existen mecanismos de prevención y/o control de
+            la violencia?</label>
+        <input type="checkbox" class="form-control controls" formControlName="mechanismsExist" value="true">
 
         <input class="botons" type="submit" value="Registrar denuncia">
 

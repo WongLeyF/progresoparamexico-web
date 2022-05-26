@@ -28,4 +28,8 @@ export class VictimService {
     return this.apiService.put(`${this.resource}/${victim._id}`, victim);
   }
 
+  delete(victimId: string): Observable<any> {
+    return this.apiService.delete(`${this.resource}/${victimId}`);
+  }
+
 }
