@@ -5,6 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { AlertModule } from 'ngx-bootstrap/alert';
 @NgModule({
   declarations: [
     HomeComponent
@@ -13,7 +14,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     CommonModule,
     HomeRoutingModule,
     MatSidenavModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    AlertModule.forRoot()
   ],
   entryComponents: [],
   bootstrap: [HomeComponent]

@@ -16,7 +16,7 @@ import { HeaderInterceptorService } from './core/services/header-interceptor.ser
 import { UnauthorizedInterceptorService } from './core/services/unauthorized-interceptor.service';
 import { SharedModule } from './modules/shared/shared.module';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { PruebaComponent } from './prueba/prueba.component';
+
 
 registerLocaleData(localeEs);
 
@@ -24,8 +24,7 @@ registerLocaleData(localeEs);
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PruebaComponent
+    AppComponent
 
   ],
   imports: [

@@ -1,7 +1,35 @@
-<div class="Carousel">
-    <h2 style="margin-right: 200px">Tipos de violencia</h2>
+<carousel [isAnimated]="true">
+  <slide>
+    <img src="assets/img/img21.jpg" alt="first slide" style="display: block;height: 700px;width: 1500px;">
+    <div class="carousel-caption d-none d-md-block">
+      <h3> <a href="/denounce"> ¡Denuncia aquí!</a></h3>
+      <p>Es anonima y Segura</p>
+    </div>
+  </slide>
+  <slide>
+    <img src="assets/img/img22.jpg" alt="second slide" style="display: block;height: 700px; width: 1500px;">
+    <div class="carousel-caption d-none d-md-block">
+      <h3> <a href="/denounce">¡No soportes más abusos, denuncia aquí!</a> </h3>
+      <p>Denuncia de manera sencilla</p>
+    </div>
+  </slide>
+  <slide>
+    <img src="assets/img/img24.jpg" alt="third slide" style="display: block;height: 700px; width: 1500px;">
+    <div class="carousel-caption d-none d-md-block">
+      <h3><a href="/denounce">¡Acaba con la violencia!</a> </h3>
+      <p>Suelta esas cadenas y liberate</p>
+    </div>
+  </slide>
+</carousel>
+<br>
 
-    <div class="slick-list" id="slick-list" style="margin-left: 200px;">
+
+<alert type="info">
+    <strong><h2 style="margin-left: 550px">Tipos de violencia</h2></strong>
+</alert>
+
+<div class="Carousel">
+    <div class="slick-list" id="slick-list" style="margin-left: 50px;">
         <mat-sidenav-container class="example-container" >
         <mat-sidenav #sidenav mode="side">
             <p  style="text-align:justify;">
@@ -15,7 +43,16 @@
               fundamental generar un impacto directo<br>
               en el cuerpo y consecuencias físicas<br>
               tanto externas como internas.<br>
+              <b>Violencia Física incluye: <br></b>
             </p>
+              <ul>
+                <li>Bofetadas</li>
+                <li>Manotazos</li>
+                <li>Palizas</li>
+                <li>Forcejeos</li>
+              </ul>
+              
+            
         </mat-sidenav>
 
         <mat-sidenav-content>
@@ -53,7 +90,16 @@
             es decir, las agresiones verbales<br>
             son una forma de violencia<br>
             psicológica y/o emocional.<br>
+
+            <b>Violencia verbal o psicologica <br> incluye: <br></b>
           </p>
+          <ul>
+            <li>Amenaza</li>
+            <li>Chantaje</li>
+            <li>Insultos</li>
+            <li>Gritos</li>
+            <li>Burlas</li>
+          </ul>
           
         </mat-sidenav>
 
@@ -91,7 +137,16 @@
               satisfacer sus necesidades y puede<br>
               abarcar daños a los bienes comunes<br>
               o propios de la víctima.<br>
+              <b>Violencia Patrimonial incluye: <br></b>
+
             </p>
+            <ul>
+              <li>Desrtrucción de documentos</li>
+              <li>Apropiación de pensión</li>
+              <li>Prohibición de pertenencias</li>
+              <li>Destrucción de patrimonio</li>
+              <li>Amenazas o manipalaciones materiales</li>
+            </ul>
         </mat-sidenav>
 
         <mat-sidenav-content>
@@ -118,7 +173,7 @@
         <mat-sidenav #sidenav4 mode="side">
             <p>
               
-              La <b>violencia sexual</b> es todo acto<br>
+              <b>La violencia sexual</b> es todo acto<br>
               intencional de naturaleza sexual<br>
               que es forzado en otra persona,<br>
               sin importar su relación, mediante<br>
@@ -129,13 +184,15 @@
               o tomando ventaja de la inhabilidad<br>
               de otra persona para dar consentimiento.<br>
               <b>Violencia sexual incluye: <br></b>
-              
-              Violación<br>
-              Toqueteo indeseado<br>
-              Acoso sexual<br>
-              Acosamiento<br>
-              Comentarios sexuales no deseados<br>
+
             </p>
+            <ul>
+              <li>Violación</li>
+              <li>Toqueteo indeseado</li>
+              <li>Acoso sexual</li>
+              <li>Acosamiento</li>
+              <li>Comentarios sexuales no deseados</li>
+            </ul>
         </mat-sidenav>
 
         <mat-sidenav-content>
@@ -159,27 +216,4 @@
       </mat-sidenav-container>
     </div>
 </div>
-
-<carousel>
-  <slide>
-    <img src="assets/img/img3.jpg" alt="first slide" style="display: block; width: 100%;">
-    <div class="carousel-caption d-none d-md-block">
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </div>
-  </slide>
-  <slide>
-    <img src="assets/img/img3.jpg" alt="second slide" style="display: block; width: 100%;">
-    <div class="carousel-caption d-none d-md-block">
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-  </slide>
-  <slide>
-    <img src="assets/img/img3.jpg" alt="third slide" style="display: block; width: 100%;">
-    <div class="carousel-caption d-none d-md-block">
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </div>
-  </slide>
-</carousel>
+<br>
