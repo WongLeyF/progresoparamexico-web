@@ -1,25 +1,45 @@
 <mat-tab-group>
-    <mat-tab label="Nivel Educativo">
+    <mat-tab label="Denuncias">
         <div class="bloque">
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Institución</th>
-                            <th>Nivel de educación</th>
-                            <th>Lugar del incidente</th>
-                            <th>Agresor</th>
-                            <th>Tipo de Violencia</th>
-                            <th>Descripción</th>
-                            <th>Sexo</th>
-                        </tr>
-                    </thead>
-                    
-                </table>
+            <div class="container">
+                <div class="row justify-content-end">
+                    <br>
+                    <div class="col-12">
+                        <!-- <button mat-button color="primary" class="botons" (click)="showAddSchoolGrade()">Agregar Nivel Educativo</button> -->
+                    </div>
+                    <div class="col-12">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Instituto</th>
+                                    <th>Nivel de Educación</th>
+                                    <th>Sexo Victima</th>
+                                    <th>Edad Victima</th>
+                                    <th>Tipo de Violencia</th>
+                                    <th>Cuando ocurrio</th>
+                                    <th>Fecha de la denuncia</th>
+                                    <!-- <th>Acciones</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let denounce of denounces">
+                                    <td>{{denounce?.instituteId?.name}} {{denounce?.careerId?.name}}</td>
+                                    <td>{{denounce?.instituteId?.schoolGrade}}</td>
+                                    <td>{{denounce?.victimId?.gender}}</td>
+                                    <td>{{denounce?.victimId?.age}}</td>
+                                    <td>{{denounce?.violenceType}}</td>
+                                    <td>{{denounce?.timeSinceIncident}}</td>
+                                    <td>{{denounce?.createdAt}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                    </div>
+                </div>
             </div>
         </div>
     </mat-tab>
-    <mat-tab label="Tipo de Violencia">
+    <!-- <mat-tab label="Tipo de Violencia">
         <div class="bloque">
             <div>
                 <table>
@@ -56,5 +76,5 @@
                 </table>
             </div>
         </div>
-    </mat-tab>
+    </mat-tab> -->
 </mat-tab-group>
