@@ -17,6 +17,7 @@ const routes: Routes = [
       {
         path: 'denounce',
         loadChildren: () => import('./modules/general/denounce/denounce.module').then(m => m.DenounceModule),
+        canActivate: [NotAuthGuard]
       },
       {
         path: 'about',

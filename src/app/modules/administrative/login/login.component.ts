@@ -50,18 +50,18 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  private register(): void {
-    const roleId = this.adminId;
-    this.userService.register({ ...this.registerForm.value, roleId}).subscribe(res => {
-      console.log(res);
+  // private register(): void {
+  //   const roleId = this.adminId;
+  //   this.userService.register({ ...this.registerForm.value, roleId}).subscribe(res => {
+  //     console.log(res);
       
-      this.login();
-    }, error => {
-      console.log(error);
+  //     this.login();
+  //   }, error => {
+  //     console.log(error);
       
-      this.isRegistered = false;
-    });
-  }
+  //     this.isRegistered = false;
+  //   });
+  // }
 
   private login(): void {
     this.authService.login({
@@ -99,7 +99,7 @@ export class LoginComponent implements OnInit {
     if (this.registerForm.valid) {
       // this.isSaving = true;
       this.isRegistered = true;
-      this.register();
+      // this.register();
       console.log('test2');
       
     } else {

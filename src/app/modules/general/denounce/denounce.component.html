@@ -95,7 +95,7 @@
             <option value="outside school with other activity">Fuera del plantel realizando otra actividad</option>
         </select>
 
-        <label style="margin-bottom:10px;" for="acciones">Seguimiento</label>
+        <!-- <label style="margin-bottom:10px;" for="acciones">Seguimiento</label> -->
 
         <select class="form-control controls" formControlName="actionTaken"
         [ngClass]="{'is-invalid': denounceForm.get('actionTaken').invalid && (denounceForm.get('actionTaken').dirty || denounceForm.get('actionTaken').touched) }">
@@ -106,6 +106,17 @@
             <option value="school authority">Denuncié ante una autoridad escolar</option>
             <option value="instance">Denuncié ante una instancia</option>
         </select>
+        <select class="form-control controls" formControlName="timeSinceIncident"
+        [ngClass]="{'is-invalid': denounceForm.get('timeSinceIncident').invalid && (denounceForm.get('timeSinceIncident').dirty || denounceForm.get('timeSinceIncident').touched) }">
+        
+            <option value="" selected>Selecciona el tiempo de cuando ocurrió</option>
+            <option value="more than 12 months">mas de 12 meses</option>
+            <option value="between 6 and 12 months">de 6 a 12 meses</option>
+            <option value="between 3 and 6 months">de 3 a 6 meses</option>
+            <option value="between 1 and 3 months">menos de 3 meses</option>
+            <option value="last 15 days">en los últimos 15 días</option>
+        </select>
+
         <select class="form-control controls" formControlName="somenthingHappened"
         [ngClass]="{'is-invalid': denounceForm.get('somenthingHappened').invalid && (denounceForm.get('somenthingHappened').dirty || denounceForm.get('somenthingHappened').touched) }">
         
@@ -117,16 +128,7 @@
             <option value="Si quisieron atenderme">Si quisieron atenderme</option>
             <option value="Si quisieron levantarme la denuncia">Si quisieron levantarme la denuncia</option>
         </select>
-        <select class="form-control controls" formControlName="timeSinceIncident"
-        [ngClass]="{'is-invalid': denounceForm.get('timeSinceIncident').invalid && (denounceForm.get('timeSinceIncident').dirty || denounceForm.get('timeSinceIncident').touched) }">
         
-            <option value="" selected>Selecciona el tiempo de atención</option>
-            <option value="more than 12 months">mas de 12 meses</option>
-            <option value="between 6 and 12 months">de 6 a 12 meses</option>
-            <option value="between 3 and 6 months">de 3 a 6 meses</option>
-            <option value="between 1 and 3 months">menos de 3 meses</option>
-            <option value="last 15 days">en los últimos 15 días</option>
-        </select>
         <select class="form-control controls" formControlName="interventionType"
         [ngClass]="{'is-invalid': denounceForm.get('interventionType').invalid && (denounceForm.get('interventionType').dirty || denounceForm.get('interventionType').touched) }">
         
@@ -143,15 +145,17 @@
         [ngClass]="{'is-invalid': denounceForm.get('interventionDescription').invalid && (denounceForm.get('interventionDescription').dirty || denounceForm.get('interventionDescription').touched) }">
             
         <!-- checkbox  informationReceived-->
+        <label style="margin-bottom:10px;" for="acciones">Información</label>
+
 
         <label style="margin-bottom:10px;" for="informacion recibida">¿Recibes informacion sobre los tipos y modalidades
             de violencia?</label>
-        <input type="checkbox" class="form-control controls" formControlName="informationReceived" value="true">
+        <input type="checkbox" class="" formControlName="informationReceived" value="true">
 
         <!-- checkbox mechanismsExist -->
         <label style="margin-bottom:10px;" for="mecanismos existentes">¿Existen mecanismos de prevención y/o control de
             la violencia?</label>
-        <input type="checkbox" class="form-control controls" formControlName="mechanismsExist" value="true">
+        <input type="checkbox" class="" formControlName="mechanismsExist" value="true">
 
         <input class="botons" type="submit" value="Registrar denuncia">
 

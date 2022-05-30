@@ -4,7 +4,7 @@
     <span><a mat-button routerLink="/about">Acerca de nosotros</a></span>
     <span><a mat-button routerLink="/violence" *ngIf="userSession && (admin || super)">Violencia</a></span>
     <div class="spacer"></div>
-    <span style="float:right" *ngIf="!userSession"><a mat-button routerLink="/login">Login</a></span>
+    <span style="float:right" *ngIf="!userSession"><a mat-button routerLink="/login">Ingresar</a></span>
     <span style="float:right" *ngIf="userSession && super"><a mat-button routerLink="/settings">Configuraciones</a></span>
-    <span style="float:right" *ngIf="userSession"><a mat-button (click)="onLogout()">LogOut</a></span>
+    <span style="float:right" *ngIf="userSession"><a mat-button (click)="onLogout()">Cerrar sesión</a></span>
 </mat-toolbar>

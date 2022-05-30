@@ -34,7 +34,7 @@ export class SettingsComponent implements OnInit {
   filters = {
     name: '',
     role: null,
-    status: 'todos',
+    status: 'activo',
     page: 1,
     limit: 15
   };
@@ -237,10 +237,26 @@ export class SettingsComponent implements OnInit {
       if (result) {
         this.getAllUsers();
       }
+      this.getAllUsers();
     });   
   }
 
   showEditUser(user: User) {
+    const dialogRef = this.dialog.open(AddUserComponent, {
+      width: '500px',
+      data: {
+        title: 'Editar usuario',
+        buttonText: 'Editar',
+        edit: true,
+        user: user
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.getAllUsers();
+      }
+    }
+    );
   }
 
   deleteUser(user: User) {
@@ -252,6 +268,7 @@ export class SettingsComponent implements OnInit {
           next: (data) => {
             this.getAllUsers();
             this.toastService.success('Se eliminó el usuario correctamente');
+            this.getAllUsers();
           },
           error: (err) => {
             this.toastService.error('No se pudo eliminar el usuario');

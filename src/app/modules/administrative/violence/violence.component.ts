@@ -9,6 +9,12 @@ import { DenounceService } from 'src/app/core/api/denounce.service';
 export class ViolenceComponent implements OnInit {
 
   denounces: any
+  denouncesByInstitute: any;
+  denouncesByCareer: any;
+  denouncesByAggressor: any[];
+  denouncesByViolenceType: any[];
+  denouncesBySchoolGrade: any[];
+  denouncesByVictimGender: any[];
 
   constructor(
     private denounceService: DenounceService
@@ -16,6 +22,7 @@ export class ViolenceComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllDenuncias();
+    // this.byInstitute();
   }
 
   getAllDenuncias() {
@@ -23,8 +30,145 @@ export class ViolenceComponent implements OnInit {
     this.denounceService.getAll().subscribe(res => {
       this.denounces = res.map(this.castToDenounce);
       console.log(res);
+      this.byInstitute();
+      this.byCareer();
+      this.byAggressor();
+      this.byViolenceType();
+      this.bySchoolGrade();
+      this.byVictimGender();
     });
   }
+
+  byInstitute() {
+    //group by instituteId._id in array and count denounces
+    const denouncesByInstitute = this.denounces.reduce((acc, cur) => {
+      const key = cur.instituteId._id;
+      if (!acc[key]) {
+        acc[key] = {
+          instituteId: cur.instituteId,
+          count: 1
+        };
+      } else {
+        acc[key].count++;
+      }
+      return acc;
+    }, {});
+
+    //cast to array
+    this.denouncesByInstitute = Object.values(denouncesByInstitute);
+
+    console.log(this.denouncesByInstitute);
+
+  }
+
+  byCareer() {
+    //group by careerId._id in array and count denounces
+    const denouncesByCareer = this.denounces.reduce((acc, cur) => {
+      const key = cur.careerId._id;
+      if (!acc[key]) {
+        acc[key] = {
+          careerId: cur.careerId,
+          instituteId: cur.instituteId,
+          count: 1
+        };
+      } else {
+        acc[key].count++;
+      }
+      return acc;
+    }, {});
+
+    //cast to array
+    this.denouncesByCareer = Object.values(denouncesByCareer);
+
+  }
+
+  byAggressor() {
+    //group by aggressorId._id in array and count denounces
+    const denouncesByAggressor = this.denounces.reduce((acc, cur) => {
+      const key = cur.aggressorId._id;
+      if (!acc[key]) {
+        acc[key] = {
+          aggressorId: cur.aggressorId,
+          instituteId: cur.instituteId,
+          count: 1
+        };
+      } else {
+        acc[key].count++;
+      }
+      return acc;
+    }, {});
+
+    //cast to array
+    this.denouncesByAggressor = Object.values(denouncesByAggressor);
+
+  }
+
+  byViolenceType() {
+    //group by instituteId._id and ViolenceType in array and count denounces
+    const denouncesByViolenceType = this.denounces.reduce((acc, cur) => {
+      const key = cur.instituteId._id + cur.violenceType;
+      if (!acc[key]) {
+        acc[key] = {
+          instituteId: cur.instituteId,
+          violenceType: cur.violenceType,
+          count: 1
+        };
+      } else {
+        acc[key].count++;
+      }
+      return acc;
+    }, {});
+
+    //cast to array
+    this.denouncesByViolenceType = Object.values(denouncesByViolenceType);
+  }
+
+  bySchoolGrade() {
+    //group by SchoolGrade in array and count denounces
+    const denouncesBySchoolGrade = this.denounces.reduce((acc, cur) => {
+      const key = cur.instituteId.schoolGrade;
+      if (!acc[key]) {
+        acc[key] = {
+          schoolGrade: cur.instituteId.schoolGrade,
+          // instituteId: cur.instituteId,
+          count: 1
+        };
+      } else {
+        acc[key].count++;
+      }
+      return acc;
+    }, {});
+
+    //cast to array
+    this.denouncesBySchoolGrade = Object.values(denouncesBySchoolGrade);
+
+    console.log(this.denouncesBySchoolGrade);
+    
+  }
+
+  byVictimGender() {
+    //group by instituteId._id and victimId.gender in array and count denounces
+    const denouncesByVictimGender = this.denounces.reduce((acc, cur) => {
+      const key = cur.instituteId._id + cur.victimId.gender;
+      if (!acc[key]) {
+        acc[key] = {
+          instituteId: cur.instituteId,
+          victimId: cur.victimId,
+          count: 1
+        };
+      } else {
+        acc[key].count++;
+      }
+      return acc;
+    }, {});
+
+    //cast to array
+    this.denouncesByVictimGender = Object.values(denouncesByVictimGender);
+
+  }
+
+
+
 
   castToDenounce(denounce) {
     return {

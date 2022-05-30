@@ -33,6 +33,10 @@ export class UsersService {
     return this.apiService.put(`${this.resource}/${userId}`, user);
   }
 
+  updatePassword(user: User): Observable<User> {
+    return this.apiService.put(`${this.resource}/password`, user);
+  }
+
   delete(userId: string): Observable<any> {
     return this.apiService.delete(`${this.resource}/${userId}`);
   }

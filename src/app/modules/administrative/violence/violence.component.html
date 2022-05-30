@@ -23,7 +23,7 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let denounce of denounces">
-                                    <td>{{denounce?.instituteId?.name}} {{denounce?.careerId?.name}}</td>
+                                    <td>{{denounce?.instituteId?.name}} - {{denounce?.careerId?.name}}</td>
                                     <td>{{denounce?.instituteId?.schoolGrade}}</td>
                                     <td>{{denounce?.victimId?.gender}}</td>
                                     <td>{{denounce?.victimId?.age}}</td>
@@ -39,42 +39,209 @@
             </div>
         </div>
     </mat-tab>
-    <!-- <mat-tab label="Tipo de Violencia">
+    <mat-tab label="Institución">
         <div class="bloque">
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Institución</th>
-                            <th>Nivel de educación</th>
-                            <th>Lugar del incidente</th>
-                            <th>Agresor</th>
-                            <th>Tipo de Violencia</th>
-                            <th>Descripción</th>
-                            <th>Sexo</th>
-                        </tr>
-                    </thead>
-                </table>
+            <div class="container">
+                <div class="row justify-content-end">
+                    <br>
+                    <div class="col-12">
+                        <!-- <button mat-button color="primary" class="botons" (click)="showAddSchoolGrade()">Agregar Nivel Educativo</button> -->
+                    </div>
+                    <div class="col-12">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Instituto</th>
+                                    <th>Nivel de Educación</th>
+                                    <th>Numero de denuncias</th>
+                                    <!-- <th>Acciones</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let denounce of denouncesByInstitute">
+                                    <td>{{denounce?.instituteId?.name}}</td>
+                                    <td>{{denounce?.instituteId?.schoolGrade}}</td>
+                                    <td>{{denounce?.count}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-tab> 
+    <mat-tab label="Carrera">
+        <div class="bloque">
+            <div class="container">
+                <div class="row justify-content-end">
+                    <br>
+                    <div class="col-12">
+                        <!-- <button mat-button color="primary" class="botons" (click)="showAddSchoolGrade()">Agregar Nivel Educativo</button> -->
+                    </div>
+                    <div class="col-12">
+                        <!-- by careerId -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Carrera</th>
+                                    <th>institución</th>
+                                    <th>Numero de denuncias</th>
+                                    <!-- <th>Acciones</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let denounce of denouncesByCareer">
+                                    <td>{{denounce?.careerId?.name}}</td>
+                                    <td>{{denounce?.instituteId?.name}}</td>
+                                    <td>{{denounce?.count}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                    </div>
+                </div>
             </div>
         </div>
     </mat-tab>
-    <mat-tab label="Sexo">
+<!-- By Aggressor -->
+    <mat-tab label="Agresor">
         <div class="bloque">
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Institución</th>
-                            <th>Nivel de educación</th>
-                            <th>Lugar del incidente</th>
-                            <th>Agresor</th>
-                            <th>Tipo de Violencia</th>
-                            <th>Descripción</th>
-                            <th>Sexo</th>
-                        </tr>
-                    </thead>
-                </table>
+            <div class="container">
+                <div class="row justify-content-end">
+                    <br>
+                    <div class="col-12">
+                        <!-- <button mat-button color="primary" class="botons" (click)="showAddSchoolGrade()">Agregar Nivel Educativo</button> -->
+                    </div>
+                    <div class="col-12">
+                        <!-- by aggressorId -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombres</th>
+                                    <th>Apellidos</th>
+                                    <th>institución</th>
+                                    <th>Numero de denuncias</th>
+                                    <!-- <th>Acciones</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let denounce of denouncesByAggressor">
+                                    <td>{{denounce?.aggressorId?.name}}</td>
+                                    <td>{{denounce?.aggressorId?.lastName}}</td>
+                                    <td>{{denounce?.instituteId?.name}}</td>
+                                    <td>{{denounce?.count}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                    </div>
+                </div>
             </div>
         </div>
-    </mat-tab> -->
+    </mat-tab>
+    <!-- By Violence Type -->
+    <mat-tab label="Tipo de Violencia">
+        <div class="bloque">
+            <div class="container">
+                <div class="row justify-content-end">
+                    <br>
+                    <div class="col-12">
+                        <!-- <button mat-button color="primary" class="botons" (click)="showAddSchoolGrade()">Agregar Nivel Educativo</button> -->
+                    </div>
+                    <div class="col-12">
+                        <!-- by violenceType -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tipo de Violencia</th>
+                                    <th>Institución</th>
+                                    <th>Numero de denuncias</th>
+                                    <!-- <th>Acciones</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let denounce of denouncesByViolenceType">
+                                    <td>{{denounce?.violenceType}}</td>
+                                    <td>{{denounce?.instituteId?.name}}</td>
+                                    <td>{{denounce?.count}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+    <!-- By School Grade -->
+    <mat-tab label="Nivel Educativo">
+        <div class="bloque">
+            <div class="container">
+                <div class="row justify-content-end">
+                    <br>
+                    <div class="col-12">
+                        <!-- <button mat-button color="primary" class="botons" (click)="showAddSchoolGrade()">Agregar Nivel Educativo</button> -->
+                    </div>
+                    <div class="col-12">
+                        <!-- by schoolGrade -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nivel Educativo</th>
+                                    <!-- <th>Institución</th> -->
+                                    <th>Numero de denuncias</th>
+                                    <!-- <th>Acciones</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let denounce of denouncesBySchoolGrade">
+                                    <td>{{denounce?.schoolGrade}}</td>
+                                    <!-- <td>{{denounce?.instituteId?.name}}</td> -->
+                                    <td>{{denounce?.count}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+    <!-- By Sexo Victima-->
+    <mat-tab label="Sexo Victima">
+        <div class="bloque">
+            <div class="container">
+                <div class="row justify-content-end">
+                    <br>
+                    <div class="col-12">
+                        <!-- <button mat-button color="primary" class="botons" (click)="showAddSchoolGrade()">Agregar Nivel Educativo</button> -->
+                    </div>
+                    <div class="col-12">
+                        <!-- by victimId -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sexo Victima</th>
+                                    <th>Institución</th>
+                                    <th>Numero de denuncias</th>
+                                    <!-- <th>Acciones</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let denounce of denouncesByVictimGender">
+                                    <td>{{denounce?.victimId?.gender}}</td>
+                                    <td>{{denounce?.instituteId?.name}}</td>
+                                    <td>{{denounce?.count}}</td>
+                                </tr>
+                                </tbody>
+                        </table>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+
+
 </mat-tab-group>

@@ -103,7 +103,7 @@ export class DenounceComponent implements OnInit {
                   next: (denounce) => {
                     console.log(denounce);
                     this.toastr.success('Denuncia creada con éxito');
-                    const answer = this.swalAlertService.confirm('Denuncia creada con éxito', '¿Desea crear otra denuncia?');
+                    const answer = this.swalAlertService.confirm('Denuncia creada con éxito', '¿Desea crear otra denuncia?','Si', 'No');
                     answer.then((result) => {
                       if (result) {
                         this.resetForm();
@@ -148,7 +148,7 @@ export class DenounceComponent implements OnInit {
               next: (denounce) => {
                 console.log(denounce);
                 this.toastr.success('Denuncia creada con éxito');
-                const answer = this.swalAlertService.confirm('Denuncia creada con éxito', '¿Desea crear otra denuncia?');
+                const answer = this.swalAlertService.confirm('Denuncia creada con éxito', '¿Desea crear otra denuncia?','Si', 'No');
                 answer.then((result) => {
                   if (result) {
                     this.resetForm();

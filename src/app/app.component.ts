@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SessionService } from './core/services/session.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'progresoparamexico-web';
+
+  constructor(
+    private sessionService: SessionService,
+  ) { 
+    this.sessionService.checkSession();
+  }
+
 }

@@ -77,7 +77,7 @@ export class AddCareerComponent implements OnInit {
             insti.careerId.push(data._id);
             this.instituteService.update(data.instituteId, {careerId: insti.careerId}).subscribe({
               next: (data) => {
-                this.toastService.success('Carrera creada con éxito');
+                this.toastService.success('Carrera actualizada con éxito');
                 this.dialogRef.close(data);
               }
             });
